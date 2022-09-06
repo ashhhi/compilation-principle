@@ -1,0 +1,39 @@
+#S是整个程序的开始，A是一个个函数  因为python中没有大括号包裹，因此为了方便识别，将#作为结束符号
+S->A
+
+#D是每个函数的定义
+A->DA
+A->D
+
+#B是每个函数体内的语句总集
+D->da(a):B#|da(a):B#
+
+#C是单个的语句
+B->CB
+B->C
+
+C->G|N|P|R|U
+#G是赋值部分
+G-> a = E|a = i|a = a|a = U
+
+#函数返回：R开头
+R->r E
+
+#函数调用：U开头
+U->a ( a )
+
+#if判断和while判断:N开头，if：f，while：w，else：e,#为结束符
+N->f I:B e:B # |f I:B #|w I: B #
+
+#判断语句（==，>=,<=,<,>）:I开头，c代替符号
+I->E c E|E c E|E c E|E c E|E c E
+
+#输出部分
+P->p(a)
+
+#E是算数部分
+E->E + T|T|E - T|T - E
+T->T * F|T / F|F / T
+T->F
+F->(E)
+F->i|a|U

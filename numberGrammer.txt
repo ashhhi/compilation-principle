@@ -1,0 +1,30 @@
+start:$ int|+ int|- int|$ float|+ float|- float|$ science|+ science|- science|$ complex|- complex|+ complex
+
+int:digit int|$ digit
+
+float:digit float|$ digit|. float_next|digit int
+
+science:digit science_first
+
+science_first:. science_first_dot|E science_second
+science_first_dot:digit science_first_dot|E science_second
+
+science_second:digit end|digit science_second|. science_second_dot
+science_second_dot:digit science_second_dot|digit end
+
+complex:$ complex_second|digit complex_first
+
+complex_first:. complex_first_dot|+ complex_second|- complex_second
+complex_first_dot:digit complex_first_dot|+ complex_second|- complex_second
+
+complex_first:E complex_first_science
+complex_first_dot:E complex_first_science
+
+complex_first_science:digit complex_first_science|. complex_first_science_dot|+ complex_second|- complex_second
+complex_first_science_dot:digit complex_first_science_dot|+ complex_second|- complex_second
+
+complex_second:digit complex_second|. complex_second_dot|i end|E complex_second_science
+complex_second_dot:digit complex_second_dot|i end|E complex_second_science
+
+complex_second_science:digit complex_second_science|. complex_second_science_dot|i end
+complex_second_science_dot:digit complex_second_science_dot|i end

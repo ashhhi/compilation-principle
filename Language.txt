@@ -1,0 +1,24 @@
+S->A|B
+
+A->DA
+A->D
+
+D->da(a):B#|da(a):Br#
+
+B->CB
+B->C
+
+C->G|P|R|U|N|O|q|b
+G-> a = E|a = i|a = a|a = U
+P->p ( E )
+R->r E
+U->a ( a )
+N->f I:B e:B # |f I:B #|w I: B #
+I->E c E|E c E|E c E|E c E|E c E|E|y|t
+O->o a n s(i`i):B #|o a n a:B #|o a n s(i`l(a)):B #
+
+E->E + T|T|E - T|T - E
+T->T * F|T / F|F / T
+T->F
+F->(E)
+F->i|a|U
